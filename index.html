@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grupo Monroe | Strategic Operational Partners</title>
+
+  <!-- SEO / Sharing -->
+  <meta name="description" content="Grupo Monroe: infraestructura, talento y servicios operativos para organizaciones líderes en México. Strategic Operational Partners." />
+  <meta property="og:title" content="Grupo Monroe | Strategic Operational Partners" />
+  <meta property="og:description" content="Infraestructura, Talento y Soluciones para la Empresa Mexicana de Clase Mundial." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root{
+      --navy:#1a2332;
+      --slate:#4a5568;
+      --turquoise:#00b4d8;
+      --white:#ffffff;
+      --light-gray:#f8f9fa;
+      --border:#e5e7eb;
+      --shadow:0 10px 30px rgba(0,0,0,0.10);
+      --radius:12px;
+      --radius-sm:8px;
+      --focus:0 0 0 3px rgba(0,180,216,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body{
+      font-family:'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color:var(--slate);
+      line-height:1.6;
+      overflow-x:hidden;
+      opacity:0;               /* Fade-in without flicker */
+      transition:opacity .35s ease;
+    }
+    body.is-ready{ opacity:1; }
+
+    /* Accessibility */
+    .skip-link{
+      position:absolute;
+      top:-60px;
+      left:16px;
+      background:var(--turquoise);
+      color:var(--white);
+      padding:10px 12px;
+      border-radius:8px;
+      z-index:2000;
+      text-decoration:none;
+      font-weight:700;
+      transition:top .2s ease;
+    }
+    .skip-link:focus{ top:16px; box-shadow: var(--focus); }
+    a:focus, button:focus, select:focus, input:focus, textarea:focus{
+      outline:none;
+      box-shadow: var(--focus);
+    }
+
+    /* HEADER */
+    header{
+      background:var(--white);
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+      transition:box-shadow .3s ease;
+    }
+    nav{
+      max-width:1400px;
+      margin:0 auto;
+      padding:1.2rem 2rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+    }
+    .logo{
+      font-size:1.8rem;
+      font-weight:700;
+      color:var(--navy);
+      letter-spacing:-0.5px;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .logo span{ color:var(--turquoise); }
+
+    .nav-links{
+      display:flex;
+      gap:2.2rem;
+      list-style:none;
+      align-items:center;
+    }
+    .nav-links a{
+      text-decoration:none;
+      color:var(--slate);
+      font-weight:500;
+      transition:color .25s;
+      font-size:.95rem;
+      cursor:pointer;
+    }
+    .nav-links a:hover{ color:var(--turquoise); }
+
+    .cta-button{
+      background:var(--turquoise);
+      color:var(--white) !important;
+      padding:.75rem 1.8rem;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:600;
+      transition:all .25s;
+      border:2px solid var(--turquoise);
+      cursor:pointer;
+      display:inline-block;
+    }
+    .cta-button:hover{
+      background:transparent;
+      color:var(--turquoise) !important;
+      transform:translateY(-2px);
+    }
+
+    /* Mobile nav */
+    .nav-toggle{
+      display:none;
+      background:transparent;
+      border:1px solid var(--border);
+      padding:.55rem .65rem;
+      border-radius:10px;
+      cursor:pointer;
+      color:var(--navy);
+      font-weight:700;
+    }
+    .mobile-menu{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+      z-index:1500;
+    }
+    .mobile-panel{
+      position:absolute;
+      right:0;
+      top:0;
+      height:100%;
+      width:min(340px, 88vw);
+      background:var(--white);
+      box-shadow:var(--shadow);
+      padding:1.2rem;
+      display:flex;
+      flex-direction:column;
+      gap:.5rem;
+      transform:translateX(110%);
+      transition:transform .25s ease;
+    }
+    .mobile-menu.open .mobile-panel{ transform:translateX(0); }
+    .mobile-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.4rem 0 1rem;
+      border-bottom:1px solid var(--border);
+    }
+    .mobile-close{
+      background:transparent;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:.4rem .6rem;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .mobile-links{
+      list-style:none;
+      padding:1rem 0;
+      display:flex;
+      flex-direction:column;
+      gap:.3rem;
+    }
+    .mobile-links a{
+      display:block;
+      padding:.9rem .8rem;
+      border-radius:10px;
+      text-decoration:none;
+      color:var(--navy);
+      font-weight:600;
+    }
+    .mobile-links a:hover{ background:rgba(0,180,216,0.08); }
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(135deg, var(--navy) 0%, #2d3e50 100%);
+      color:var(--white);
+      padding:180px 2rem 120px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(0,180,216,0.1)" stroke-width="1"/></pattern></defs><rect width="100%%" height="100%%" fill="url(%23grid)"/></svg>');
+      opacity:.3;
+    }
+    .hero-content{
+      max-width:1400px;
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+    .hero h1{
+      font-size:3.5rem;
+      font-weight:700;
+      margin-bottom:1.5rem;
+      line-height:1.2;
+      max-width:900px;
+    }
+    .hero .subtitle{
+      font-size:1.4rem;
+      margin-bottom:2.5rem;
+      opacity:.92;
+      max-width:900px;
+      font-weight:300;
+    }
+    .hero-cta{
+      display:flex;
+      gap:1.2rem;
+      margin-top:2.2rem;
+      flex-wrap:wrap;
+    }
+    .btn-primary, .btn-secondary{
+      display:inline-block;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:1.05rem;
+      padding:1rem 2.2rem;
+      cursor:pointer;
+      transition:all .25s;
+      user-select:none;
+      border:2px solid transparent;
+    }
+    .btn-primary{
+      background:var(--turquoise);
+      color:var(--white);
+      border-color:var(--turquoise);
+    }
+    .btn-primary:hover{
+      background:transparent;
+      transform:translateY(-3px);
+      box-shadow:0 10px 30px rgba(0,180,216,0.25);
+    }
+    .btn-secondary{
+      background:transparent;
+      color:var(--white);
+      border-color:var(--white);
+    }
+    .btn-secondary:hover{
+      background:var(--white);
+      color:var(--navy);
+      transform:translateY(-3px);
+    }
+
+    /* TRUST */
+    .trust-bar{
+      background:var(--white);
+      padding:3rem 2rem;
+      border-bottom:1px solid var(--border);
+    }
+    .trust-content{
+      max-width:1400px;
+      margin:0 auto;
+      text-align:center;
+    }
+    .trust-content h3{
+      color:var(--slate);
+      font-size:1.1rem;
+      margin-bottom:2rem;
+      font-weight:700;
+      letter-spacing:0.5px;
+    }
+    .client-logos{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:3.2rem;
+      flex-wrap:wrap;
+      opacity:.75;
+    }
+    .client-logos .logo-item{
+      font-size:1.55rem;
+      font-weight:800;
+      color:var(--slate);
+      filter:grayscale(100%);
+      transition:all .25s;
+    }
+    .client-logos .logo-item:hover{
+      filter:grayscale(0%);
+      opacity:1;
+    }
+
+    /* SECTION BASICS */
+    .section-header{
+      text-align:center;
+      margin-bottom:4rem;
+    }
+    .section-header h2{
+      font-size:2.8rem;
+      color:var(--navy);
+      margin-bottom:1rem;
+      font-weight:800;
+    }
+    .section-header p{
+      font-size:1.15rem;
+      color:var(--slate);
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    /* SOLUTIONS */
+    .solutions{
+      background:var(--light-gray);
+      padding:6rem 2rem;
+    }
+    .solutions-content{
+      max-width:1400px;
+      margin:0 auto;
+    }
+    .solutions-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:2rem;
+      margin-top:3rem;
+    }
+    .solution-card{
+      background:var(--white);
+      padding:2.5rem;
+      border-radius:var(--radius);
+      transition:transform .25s, box-shadow .25s, border-color .25s;
+      cursor:pointer;
+      border:2px solid transparent;
+      position:relative;
+      overflow:hidden;
+    }
+    .solution-card::before{
+      content:'';
+      position:absolute;
+      top:0; left:0;
+      width:4px;
+      height:0;
+      background:var(--turquoise);
+      transition:height .25s;
+    }
+    .solution-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow);
+      border-color:var(--turquoise);
+    }
+    .solution-card:hover::before{ height:100%; }
+    .solution-icon{
+      width:60px;
+      height:60px;
+      background:rgba(0,180,216,0.1);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:1.5rem;
+      font-size:1.8rem;
+    }
+    .solution-card h3{
+      color:var(--navy);
+      font-size:1.5rem;
+      margin-bottom:1rem;
+      font-weight:800;
+    }
+    .solution-card p{ color:var(--slate); line-height:1.75; font-size:.98rem; }
+
+    /* ABOUT */
+    .about{ background:var(--white); padding:6rem 2rem; }
+    .about-content{ max-width:1400px; margin:0 auto; }
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:5rem;
+      align-items:center;
+      margin-bottom:5rem;
+    }
+    .about-text h2{
+      font-size:2.8rem;
+      color:var(--navy);
+      margin-bottom:1.5rem;
+      font-weight:800;
+    }
+    .about-text h3{
+      font-size:1.5rem;
+      color:var(--turquoise);
+      margin-top:2rem;
+      margin-bottom:1rem;
+    }
+    .about-text p{
+      font-size:1.08rem;
+      color:var(--slate);
+      margin-bottom:1.3rem;
+      line-height:1.85;
+    }
+    .timeline{
+      background:var(--light-gray);
+      padding:2rem;
+      border-radius:var(--radius);
+      border-left:4px solid var(--turquoise);
+    }
+    .timeline-item{ margin-bottom:2rem; }
+    .timeline-item:last-child{ margin-bottom:0; }
+    .timeline-year{
+      font-size:1.8rem;
+      font-weight:900;
+      color:var(--turquoise);
+      margin-bottom:.5rem;
+    }
+    .timeline-text{ color:var(--slate); line-height:1.75; }
+    .values-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:2rem;
+      margin-top:3rem;
+    }
+    .value-card{
+      background:var(--light-gray);
+      padding:2rem;
+      border-radius:var(--radius);
+      text-align:center;
+      border:1px solid transparent;
+      transition:transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .value-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 12px 30px rgba(0,0,0,.08);
+      border-color:rgba(0,180,216,0.25);
+    }
+    .value-icon{ font-size:3rem; margin-bottom:1rem; }
+    .value-card h4{ color:var(--navy); font-size:1.3rem; margin-bottom:.5rem; font-weight:800; }
+    .value-card p{ color:var(--slate); font-size:.95rem; }
+
+    /* ADVANTAGE */
+    .advantage{ background:var(--light-gray); padding:6rem 2rem; }
+    .advantage-content{
+      max-width:1400px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:5rem;
+      align-items:center;
+    }
+    .advantage-text h2{ font-size:2.8rem; color:var(--navy); margin-bottom:1.5rem; font-weight:800; }
+    .advantage-text p{ font-size:1.08rem; color:var(--slate); margin-bottom:2rem; line-height:1.85; }
+    .advantage-list{ list-style:none; margin-top:2rem; }
+    .advantage-list li{
+      padding:1rem 0;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:flex-start;
+      gap:1rem;
+    }
+    .advantage-list li:last-child{ border-bottom:none; }
+    .check-icon{ color:var(--turquoise); font-size:1.5rem; flex-shrink:0; }
+    .advantage-visual{
+      background:linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+      border-radius:var(--radius);
+      padding:3rem;
+      color:var(--white);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height:400px;
+    }
+    .stat-item{ margin-bottom:2.2rem; }
+    .stat-number{ font-size:3.5rem; font-weight:900; color:var(--turquoise); margin-bottom:.5rem; }
+    .stat-label{ font-size:1.05rem; opacity:.92; }
+
+    /* DIVISION DETAILS */
+    .division-detail{ background:var(--white); padding:6rem 2rem; }
+    .division-content{ max-width:1400px; margin:0 auto; }
+    .division-header{ text-align:center; margin-bottom:4rem; }
+    .division-badge{
+      background:rgba(0,180,216,0.1);
+      color:var(--turquoise);
+      padding:.5rem 1.5rem;
+      border-radius:50px;
+      font-size:.9rem;
+      font-weight:800;
+      display:inline-block;
+      margin-bottom:1rem;
+    }
+    .division-header h2{ font-size:3rem; color:var(--navy); margin-bottom:1rem; font-weight:900; }
+    .division-header .tagline{ font-size:1.25rem; color:var(--slate); font-style:italic; }
+
+    .services-list{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:2rem;
+      margin:3rem 0;
+    }
+    .service-item{
+      background:var(--light-gray);
+      padding:2rem;
+      border-radius:var(--radius);
+      border-left:4px solid var(--turquoise);
+      transition:transform .25s, box-shadow .25s;
+    }
+    .service-item:hover{ transform:translateY(-4px); box-shadow:0 10px 22px rgba(0,0,0,.07); }
+    .service-item h4{ color:var(--navy); font-size:1.3rem; margin-bottom:.8rem; font-weight:900; }
+    .service-item p{ color:var(--slate); line-height:1.75; }
+
+    .process-section{
+      background:var(--light-gray);
+      padding:3rem;
+      border-radius:var(--radius);
+      margin-top:3rem;
+    }
+    .process-steps{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:2rem;
+      margin-top:2rem;
+    }
+    .step{ text-align:center; }
+    .step-number{
+      width:60px; height:60px;
+      background:var(--turquoise);
+      color:var(--white);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.5rem;
+      font-weight:900;
+      margin:0 auto 1rem;
+    }
+    .step h5{ color:var(--navy); margin-bottom:.5rem; font-weight:900; }
+    .step p{ color:var(--slate); font-size:.9rem; }
+
+    /* CASE STUDIES */
+    .case-studies{ background:var(--light-gray); padding:6rem 2rem; }
+    .case-studies-content{ max-width:1400px; margin:0 auto; }
+    .case-card{
+      background:var(--white);
+      border-radius:var(--radius);
+      overflow:hidden;
+      margin-top:3rem;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      transition:transform .25s;
+    }
+    .case-card:hover{ transform:translateY(-4px); }
+    .case-image{
+      background:linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+      min-height:400px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:4rem;
+      color:rgba(255,255,255,0.2);
+    }
+    .case-content{
+      padding:3rem;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .case-client{ color:var(--turquoise); font-weight:900; font-size:.95rem; margin-bottom:1rem; letter-spacing:1px; }
+    .case-content h3{ color:var(--navy); font-size:2rem; margin-bottom:1.5rem; font-weight:900; }
+    .case-content p{ color:var(--slate); line-height:1.85; margin-bottom:1.3rem; }
+    .case-result{
+      background:rgba(0,180,216,0.1);
+      padding:1.5rem;
+      border-radius:var(--radius-sm);
+      border-left:4px solid var(--turquoise);
+      margin-top:1rem;
+    }
+    .case-result strong{ color:var(--navy); }
+
+    /* CONTACT */
+    .contact-card{
+      background:linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+      padding:3rem;
+      border-radius:var(--radius);
+      color:var(--white);
+    }
+    .contact-card label{
+      display:block;
+      margin-bottom:.5rem;
+      font-weight:700;
+    }
+    .contact-card input, .contact-card select, .contact-card textarea{
+      width:100%;
+      padding:.75rem;
+      border-radius:6px;
+      border:none;
+      font-size:1rem;
+    }
+    .contact-card textarea{ min-height:120px; resize:vertical; }
+    .contact-submit{
+      width:100%;
+      background:var(--turquoise);
+      color:var(--white);
+      padding:1rem;
+      border:none;
+      border-radius:6px;
+      font-size:1.05rem;
+      font-weight:900;
+      cursor:pointer;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .contact-submit:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 30px rgba(0,180,216,0.35);
+    }
+
+    /* FOOTER */
+    footer{
+      background:var(--navy);
+      color:var(--white);
+      padding:4rem 2rem 2rem;
+    }
+    .footer-content{
+      max-width:1400px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:3rem;
+      margin-bottom:3rem;
+    }
+    .footer-brand h3{ font-size:1.8rem; margin-bottom:1rem; }
+    .footer-brand p{ opacity:.85; line-height:1.75; margin-bottom:1.5rem; }
+    .footer-links h4{ font-size:1.1rem; margin-bottom:1.5rem; color:var(--turquoise); font-weight:900; }
+    .footer-links ul{ list-style:none; }
+    .footer-links ul li{ margin-bottom:.8rem; }
+    .footer-links a{
+      color:var(--white);
+      text-decoration:none;
+      opacity:.85;
+      transition:all .25s;
+      cursor:pointer;
+    }
+    .footer-links a:hover{ opacity:1; color:var(--turquoise); padding-left:5px; }
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,0.1);
+      padding-top:2rem;
+      text-align:center;
+      opacity:.7;
+      font-size:.9rem;
+    }
+    .certifications{ display:flex; gap:1rem; margin-top:1.5rem; flex-wrap:wrap; }
+    .cert-badge{
+      background:rgba(255,255,255,0.1);
+      padding:.5rem 1rem;
+      border-radius:6px;
+      font-size:.85rem;
+      border:1px solid rgba(255,255,255,0.2);
+      font-weight:700;
+    }
+
+    /* HIDDEN */
+    .hidden{ display:none !important; }
+
+    /* Toast */
+    .toast{
+      position:fixed;
+      bottom:2rem;
+      right:2rem;
+      max-width:min(420px, 88vw);
+      background:var(--navy);
+      color:var(--white);
+      padding:1rem 1.2rem;
+      border-radius:10px;
+      box-shadow:var(--shadow);
+      z-index:10000;
+      animation:slideIn .25s ease;
+    }
+    .toast.success{ background:var(--turquoise); }
+    @keyframes slideIn{ from{ transform:translateX(24px); opacity:0; } to{ transform:translateX(0); opacity:1; } }
+    @keyframes slideOut{ from{ transform:translateX(0); opacity:1; } to{ transform:translateX(24px); opacity:0; } }
+
+    /* MOBILE */
+    @media (max-width: 768px){
+      nav{ padding:1rem 1.2rem; }
+      .nav-links{ display:none; }
+      .nav-toggle{ display:inline-flex; align-items:center; gap:.5rem; }
+      .mobile-menu{ display:block; }
+
+      .hero{ padding:140px 1.2rem 80px; }
+      .hero h1{ font-size:2.15rem; }
+      .hero .subtitle{ font-size:1.08rem; }
+
+      .solutions-grid{ grid-template-columns:1fr; }
+      .about-grid, .advantage-content{ grid-template-columns:1fr; gap:3rem; }
+      .case-card{ grid-template-columns:1fr; }
+      .case-image{ min-height:220px; }
+      .footer-content{ grid-template-columns:1fr; }
+      .client-logos{ gap:1.8rem; }
+      .section-header h2{ font-size:2rem; }
+      .values-grid{ grid-template-columns:1fr; }
+      .services-list{ grid-template-columns:1fr; }
+      .process-steps{ grid-template-columns:1fr; }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      * { scroll-behavior:auto !important; }
+      .solution-card, .value-card, .case-card, .service-item,
+      .btn-primary, .btn-secondary, .cta-button{
+        transition:none !important;
+      }
+      .toast{ animation:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- HEADER -->
+  <header>
+    <nav aria-label="Navegación principal">
+      <div class="logo" data-nav="inicio" role="button" tabindex="0" aria-label="Ir a inicio">GRUPO <span>MONROE</span></div>
+
+      <ul class="nav-links" role="list">
+        <li><a data-nav="inicio">Inicio</a></li>
+        <li><a data-nav="nosotros">Acerca de</a></li>
+        <li><a data-nav="soluciones">Soluciones</a></li>
+        <li><a data-nav="casos">Casos de Éxito</a></li>
+        <li><a data-nav="contacto" class="cta-button">Cotizar Proyecto</a></li>
+      </ul>
+
+      <button class="nav-toggle" type="button" id="navToggle" aria-label="Abrir menú" aria-controls="mobileMenu" aria-expanded="false">
+        ☰ Menú
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Menú">
+      <div class="mobile-header">
+        <div class="logo" data-nav="inicio" role="button" tabindex="0">GRUPO <span>MONROE</span></div>
+        <button class="mobile-close" type="button" id="navClose" aria-label="Cerrar menú">✕</button>
+      </div>
+      <ul class="mobile-links" role="list">
+        <li><a data-nav="inicio">Inicio</a></li>
+        <li><a data-nav="nosotros">Acerca de</a></li>
+        <li><a data-nav="soluciones">Soluciones</a></li>
+        <li><a data-nav="casos">Casos de Éxito</a></li>
+        <li><a data-nav="contacto" class="cta-button" style="text-align:center;">Cotizar Proyecto</a></li>
+      </ul>
+      <div style="margin-top:auto; font-size:.9rem; color:var(--slate);">
+        <strong>Contacto:</strong> <a href="mailto:contacto@grupomonroe.mx" style="color:var(--navy);">contacto@grupomonroe.mx</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- SECCIÓN INICIO -->
+    <div id="inicio-section">
+      <section class="hero" aria-label="Hero">
+        <div class="hero-content">
+          <h1>Infraestructura, Talento y Soluciones para la Empresa Mexicana de Clase Mundial</h1>
+          <p class="subtitle">Aliados estratégicos de instituciones como FEMSA, Tec de Monterrey y Gobierno de Nuevo León. Potenciamos la infraestructura operativa de las organizaciones líderes en México.</p>
+          <div class="hero-cta">
+            <a class="btn-primary" data-nav="contacto">Hable con un Experto</a>
+            <a class="btn-secondary" data-nav="soluciones">Conocer Soluciones</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-bar" aria-label="Clientes">
+        <div class="trust-content">
+          <h3>LA CONFIANZA DE LOS LÍDERES NOS RESPALDA</h3>
+          <div class="client-logos" aria-label="Logotipos de clientes (referencial)">
+            <div class="logo-item">FEMSA</div>
+            <div class="logo-item">OXXO</div>
+            <div class="logo-item">TEC</div>
+            <div class="logo-item">UANL</div>
+            <div class="logo-item">GOBIERNO NL</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOLUCIONES OVERVIEW (esta sección vive dentro de Inicio, pero es navegable con scroll) -->
+      <section class="solutions" id="soluciones-section" aria-label="Soluciones">
+        <div class="solutions-content">
+          <div class="section-header">
+            <h2>Un Solo Aliado. Múltiples Soluciones.</h2>
+            <p>Integramos tecnología, talento y servicios corporativos para que su negocio nunca se detenga. Strategic Operational Partners.</p>
+          </div>
+
+          <div class="solutions-grid">
+            <div class="solution-card" data-nav="monroe-tech" role="button" tabindex="0" aria-label="Ver Monroe Tech">
+              <div class="solution-icon">🖥️</div>
+              <h3>Monroe Tech</h3>
+              <p>Infraestructura TI, desarrollo de software, cableado estructurado y ciberseguridad. Mantenemos su tecnología operando al máximo rendimiento.</p>
+            </div>
+
+            <div class="solution-card" data-nav="monroe-talent" role="button" tabindex="0" aria-label="Ver Monroe Talent">
+              <div class="solution-icon">👥</div>
+              <h3>Monroe Talent</h3>
+              <p>Reclutamiento especializado, gestión de nómina y administración de capital humano. Conectamos el talento correcto con su organización.</p>
+            </div>
+
+            <div class="solution-card" data-nav="monroe-services" role="button" tabindex="0" aria-label="Ver Monroe Services">
+              <div class="solution-icon">🏢</div>
+              <h3>Monroe Services</h3>
+              <p>Facility management, mantenimiento preventivo y correctivo, eventos corporativos. Su infraestructura física en manos expertas.</p>
+            </div>
+
+            <div class="solution-card" data-nav="monroe-supply" role="button" tabindex="0" aria-label="Ver Monroe Supply">
+              <div class="solution-icon">📦</div>
+              <h3>Monroe Supply</h3>
+              <p>Comercialización e importación de insumos corporativos. Optimizamos su cadena de suministro con eficiencia comprobada.</p>
+            </div>
+
+            <div class="solution-card" data-nav="monroe-foods" role="button" tabindex="0" aria-label="Ver Monroe Foods">
+              <div class="solution-icon">🍽️</div>
+              <h3>Monroe Foods</h3>
+              <p>Soluciones alimentarias corporativas con estándares de calidad institucional. Nutrición y servicio de excelencia para su equipo.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="advantage" aria-label="Ventaja Monroe">
+        <div class="advantage-content">
+          <div class="advantage-text">
+            <h2>La Ventaja Monroe</h2>
+            <p>Entendemos que los directores de operaciones buscan simplificar, no complicar. Por eso ofrecemos un ecosistema integrado que reduce proveedores, unifica facturación y eleva estándares de calidad.</p>
+            <ul class="advantage-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Un solo proveedor, una sola factura</strong><br />
+                  Simplifique su operación consolidando múltiples servicios con un solo aliado estratégico.
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Sinergia operativa comprobada</strong><br />
+                  Nuestra infraestructura física se integra naturalmente con tecnología y capital humano.
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Confiabilidad absoluta</strong><br />
+                  Si Monroe lo hace, está bien hecho. Validado por más de una década sirviendo a organizaciones líderes.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="advantage-visual" aria-label="Estadísticas">
+            <div class="stat-item">
+              <div class="stat-number">12+</div>
+              <div class="stat-label">Años de experiencia consolidada desde 2013</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Proyectos exitosos ejecutados</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Tasa de satisfacción de clientes corporativos</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SECCIÓN NOSOTROS -->
+    <div id="nosotros-section" class="hidden">
+      <section class="about">
+        <div class="about-content">
+          <div class="section-header">
+            <h2>Acerca de Grupo Monroe</h2>
+            <p>Más de una década transformando la infraestructura operativa de México</p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <h3>Nuestra Historia</h3>
+              <p>Fundado en 2013, Grupo Monroe nació con una visión clara: convertirse en el aliado estratégico que las empresas mexicanas necesitan para operar con excelencia. Lo que comenzó como una empresa especializada en tecnología, evolucionó hacia un ecosistema de soluciones operativas integrales.</p>
+              <p>Comprendimos que nuestros clientes no buscaban proveedores aislados, sino un socio que entendiera cómo la tecnología, el talento humano y la infraestructura física trabajan juntos para impulsar el éxito empresarial.</p>
+
+              <h3>Nuestra Filosofía</h3>
+              <p><strong>Si Monroe lo hace, está bien hecho.</strong> Esta promesa resume nuestro compromiso con la excelencia operativa. No nos conformamos con cumplir expectativas; nuestra misión es superarlas consistentemente.</p>
+            </div>
+
+            <div class="timeline" aria-label="Línea de tiempo">
+              <div class="timeline-item">
+                <div class="timeline-year">2013</div>
+                <div class="timeline-text">Fundación de Grupo Monroe con enfoque en soluciones tecnológicas para empresas en Monterrey.</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2016</div>
+                <div class="timeline-text">Expansión hacia capital humano y facility management. Primer contrato con FEMSA.</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2019</div>
+                <div class="timeline-text">Alianza estratégica con Tec de Monterrey. Certificación ISO 9001 obtenida.</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-text">Consolidación del modelo de ecosistema integrado. Más de 500 proyectos completados.</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2026</div>
+                <div class="timeline-text">Posicionamiento como Strategic Operational Partners de organizaciones líderes en México.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-header" style="margin-top:5rem;">
+            <h2>Nuestros Valores</h2>
+          </div>
+
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon">🎯</div>
+              <h4>Confiabilidad Absoluta</h4>
+              <p>Reducimos el riesgo operativo del comprador corporativo. Cuando elige Monroe, elige certeza.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">⚡</div>
+              <h4>Agilidad de Respuesta</h4>
+              <p>Resolvemos lo complejo con velocidad. Su tiempo es valioso y lo respetamos.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🔗</div>
+              <h4>Integración</h4>
+              <p>Conectamos infraestructura física, tecnología y capital humano bajo un mismo estándar de servicio.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- DIVISION: TECH -->
+    <div id="monroe-tech-section" class="hidden">
+      <section class="division-detail">
+        <div class="division-content">
+          <div class="division-header">
+            <span class="division-badge">DIVISIÓN TECNOLÓGICA</span>
+            <h2>Monroe Tech</h2>
+            <p class="tagline">Infraestructura tecnológica que nunca falla</p>
+          </div>
+
+          <div class="about-text" style="max-width:800px; margin:0 auto 3rem; text-align:center;">
+            <p style="font-size:1.2rem;">Diseñamos, implementamos y mantenemos la columna vertebral tecnológica de su organización. Desde cableado estructurado hasta desarrollo de software a medida, cada solución está construida para escalar con su crecimiento.</p>
+          </div>
+
+          <div class="services-list">
+            <div class="service-item">
+              <h4>🌐 Infraestructura de Red</h4>
+              <p>Cableado estructurado categoría 6A y 7, fibra óptica, racks de servidores, switches empresariales. Certificación y documentación completa.</p>
+            </div>
+            <div class="service-item">
+              <h4>💻 Desarrollo de Software</h4>
+              <p>Aplicaciones web y móviles a medida, integración ERP/CRM, automatización de procesos, APIs empresariales.</p>
+            </div>
+            <div class="service-item">
+              <h4>🔒 Ciberseguridad</h4>
+              <p>Auditorías, firewalls, detección de intrusos, políticas de respaldo y recuperación ante desastres.</p>
+            </div>
+            <div class="service-item">
+              <h4>☁️ Soluciones Cloud</h4>
+              <p>Migración a nube, administración de servidores, respaldo y arquitectura híbrida.</p>
+            </div>
+            <div class="service-item">
+              <h4>📞 Telefonía IP</h4>
+              <p>Comunicación unificada, VoIP empresarial, contact centers e integración con CRM.</p>
+            </div>
+            <div class="service-item">
+              <h4>🛠️ Soporte Técnico</h4>
+              <p>Mesa de ayuda, mantenimiento preventivo, actualizaciones y monitoreo proactivo.</p>
+            </div>
+          </div>
+
+          <div class="process-section">
+            <h3 style="color:var(--navy); font-size:2rem; text-align:center; margin-bottom:1rem; font-weight:900;">Nuestro Proceso de Implementación</h3>
+            <div class="process-steps">
+              <div class="step"><div class="step-number">1</div><h5>Diagnóstico</h5><p>Análisis de infraestructura actual y necesidades futuras.</p></div>
+              <div class="step"><div class="step-number">2</div><h5>Diseño</h5><p>Propuesta técnica con arquitectura escalable y tiempos definidos.</p></div>
+              <div class="step"><div class="step-number">3</div><h5>Implementación</h5><p>Ejecución profesional sin interrumpir su operación.</p></div>
+              <div class="step"><div class="step-number">4</div><h5>Soporte</h5><p>Acompañamiento continuo, actualizaciones y optimización.</p></div>
+            </div>
+          </div>
+
+          <div style="text-align:center; margin-top:3rem;">
+            <a class="btn-primary" data-nav="contacto">Solicitar Consultoría Técnica</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- DIVISION: TALENT -->
+    <div id="monroe-talent-section" class="hidden">
+      <section class="division-detail">
+        <div class="division-content">
+          <div class="division-header">
+            <span class="division-badge">DIVISIÓN DE CAPITAL HUMANO</span>
+            <h2>Monroe Talent</h2>
+            <p class="tagline">El talento correcto en el momento preciso</p>
+          </div>
+
+          <div class="about-text" style="max-width:800px; margin:0 auto 3rem; text-align:center;">
+            <p style="font-size:1.2rem;">Somos su departamento externo de recursos humanos: conectamos organizaciones líderes con profesionales de alto calibre y administramos el ciclo de vida del talento.</p>
+          </div>
+
+          <div class="services-list">
+            <div class="service-item"><h4>🎯 Reclutamiento Especializado</h4><p>Headhunting ejecutivo, perfiles técnicos, psicometría, verificación de referencias y background checks.</p></div>
+            <div class="service-item"><h4>📊 Gestión de Nómina</h4><p>Administración de nómina, impuestos y prestaciones; cumplimiento IMSS, Infonavit y SAT.</p></div>
+            <div class="service-item"><h4>👔 Administración de Personal</h4><p>Provisión de personal temporal/permanente, administración de contratos y cobertura operativa.</p></div>
+            <div class="service-item"><h4>📚 Capacitación Corporativa</h4><p>Desarrollo de habilidades, certificaciones técnicas, liderazgo y onboarding.</p></div>
+            <div class="service-item"><h4>⚖️ Cumplimiento</h4><p>Asesoría NOM-035, políticas de clima laboral, contratos y reglamentos internos.</p></div>
+            <div class="service-item"><h4>📈 Evaluación de Desempeño</h4><p>Sistemas de medición, planes de desarrollo, encuestas de clima organizacional.</p></div>
+          </div>
+
+          <div class="process-section">
+            <h3 style="color:var(--navy); font-size:2rem; text-align:center; margin-bottom:1rem; font-weight:900;">Proceso de Reclutamiento</h3>
+            <div class="process-steps">
+              <div class="step"><div class="step-number">1</div><h5>Briefing</h5><p>Entendemos cultura y perfil ideal.</p></div>
+              <div class="step"><div class="step-number">2</div><h5>Búsqueda</h5><p>Red de contactos + headhunting.</p></div>
+              <div class="step"><div class="step-number">3</div><h5>Evaluación</h5><p>Entrevistas, pruebas y referencias.</p></div>
+              <div class="step"><div class="step-number">4</div><h5>Integración</h5><p>Presentación de finalistas + onboarding.</p></div>
+            </div>
+          </div>
+
+          <div style="text-align:center; margin-top:3rem;">
+            <a class="btn-primary" data-nav="contacto">Iniciar Proceso de Reclutamiento</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- DIVISION: SERVICES -->
+    <div id="monroe-services-section" class="hidden">
+      <section class="division-detail">
+        <div class="division-content">
+          <div class="division-header">
+            <span class="division-badge">DIVISIÓN DE SERVICIOS CORPORATIVOS</span>
+            <h2>Monroe Services</h2>
+            <p class="tagline">Su infraestructura física en manos expertas</p>
+          </div>
+
+          <div class="about-text" style="max-width:800px; margin:0 auto 3rem; text-align:center;">
+            <p style="font-size:1.2rem;">Gestionamos su infraestructura física con protocolos industriales y equipos capacitados, priorizando continuidad operativa y prevención.</p>
+          </div>
+
+          <div class="services-list">
+            <div class="service-item"><h4>🏢 Facility Management Integral</h4><p>Administración de instalaciones, mantenimiento preventivo/correctivo, gestión de proveedores, bitácoras digitales.</p></div>
+            <div class="service-item"><h4>❄️ Sistemas HVAC</h4><p>Mantenimiento de aires comerciales/industriales, torres de enfriamiento, chillers y ventilación.</p></div>
+            <div class="service-item"><h4>⚡ Instalaciones Eléctricas</h4><p>Subestaciones, plantas de emergencia, UPS, iluminación y cumplimiento normativo.</p></div>
+            <div class="service-item"><h4>🚰 Sistemas Hidráulicos</h4><p>Redes hidráulicas, bombas, sistemas contra incendio, tratamiento de aguas.</p></div>
+            <div class="service-item"><h4>🎉 Eventos Corporativos</h4><p>Convenciones, congresos, logística, catering y producción audiovisual.</p></div>
+            <div class="service-item"><h4>🧹 Limpieza Especializada</h4><p>Oficinas/áreas industriales, sanitización, pulido de pisos y fachadas.</p></div>
+          </div>
+
+          <div class="process-section">
+            <h3 style="color:var(--navy); font-size:2rem; text-align:center; margin-bottom:1rem; font-weight:900;">Metodología de Mantenimiento</h3>
+            <div class="process-steps">
+              <div class="step"><div class="step-number">1</div><h5>Auditoría</h5><p>Inspección técnica completa.</p></div>
+              <div class="step"><div class="step-number">2</div><h5>Planificación</h5><p>Calendario preventivo sin fricción.</p></div>
+              <div class="step"><div class="step-number">3</div><h5>Ejecución</h5><p>Técnicos capacitados y protocolos.</p></div>
+              <div class="step"><div class="step-number">4</div><h5>Reporteo</h5><p>Bitácoras, evidencia y métricas.</p></div>
+            </div>
+          </div>
+
+          <div style="text-align:center; margin-top:3rem;">
+            <a class="btn-primary" data-nav="contacto">Agendar Auditoría</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- DIVISION: SUPPLY -->
+    <div id="monroe-supply-section" class="hidden">
+      <section class="division-detail">
+        <div class="division-content">
+          <div class="division-header">
+            <span class="division-badge">DIVISIÓN DE SUMINISTROS</span>
+            <h2>Monroe Supply</h2>
+            <p class="tagline">Optimización de su cadena de suministro</p>
+          </div>
+
+          <div class="about-text" style="max-width:800px; margin:0 auto 3rem; text-align:center;">
+            <p style="font-size:1.2rem;">Reducimos la complejidad de aprovisionar insumos. Nuestra red de proveedores y logística asegura disponibilidad, calidad y condiciones competitivas.</p>
+          </div>
+
+          <div class="services-list">
+            <div class="service-item"><h4>📦 Comercialización de Insumos</h4><p>Artículos de oficina, equipo de cómputo, mobiliario, consumibles y papelería institucional.</p></div>
+            <div class="service-item"><h4>🌎 Importación Especializada</h4><p>Gestión aduanal, consolidación de cargas y seguros de mercancía.</p></div>
+            <div class="service-item"><h4>🚚 Logística y Distribución</h4><p>Almacenamiento, last-mile, inventarios administrados y entregas programadas.</p></div>
+            <div class="service-item"><h4>💼 Compras Corporativas</h4><p>Licitaciones, cotizaciones comparativas, contratos marco y descuentos por volumen.</p></div>
+            <div class="service-item"><h4>🏭 Insumos Industriales</h4><p>Refacciones, herramientas, EPP, señalética y uniformes.</p></div>
+            <div class="service-item"><h4>📊 Control de Inventarios</h4><p>Pedidos automatizados, alertas de reorden y reportes de consumo.</p></div>
+          </div>
+
+          <div class="process-section">
+            <h3 style="color:var(--navy); font-size:2rem; text-align:center; margin-bottom:1rem; font-weight:900;">Proceso de Suministro</h3>
+            <div class="process-steps">
+              <div class="step"><div class="step-number">1</div><h5>Análisis</h5><p>Patrones de consumo y ahorro.</p></div>
+              <div class="step"><div class="step-number">2</div><h5>Sourcing</h5><p>Negociación con proveedores.</p></div>
+              <div class="step"><div class="step-number">3</div><h5>Gestión</h5><p>Documentación y logística.</p></div>
+              <div class="step"><div class="step-number">4</div><h5>Entrega</h5><p>Distribución y facturación unificada.</p></div>
+            </div>
+          </div>
+
+          <div style="text-align:center; margin-top:3rem;">
+            <a class="btn-primary" data-nav="contacto">Solicitar Cotización</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- DIVISION: FOODS -->
+    <div id="monroe-foods-section" class="hidden">
+      <section class="division-detail">
+        <div class="division-content">
+          <div class="division-header">
+            <span class="division-badge">DIVISIÓN ALIMENTARIA</span>
+            <h2>Monroe Foods</h2>
+            <p class="tagline">Nutrición y servicio de excelencia institucional</p>
+          </div>
+
+          <div class="about-text" style="max-width:800px; margin:0 auto 3rem; text-align:center;">
+            <p style="font-size:1.2rem;">Con estándares de calidad institucional, menús balanceados y servicio impecable, transformamos el comedor corporativo en una experiencia que cuida salud y productividad.</p>
+          </div>
+
+          <div class="services-list">
+            <div class="service-item"><h4>🍴 Comedores Corporativos</h4><p>Administración completa, menús balanceados y servicio tipo línea/buffet.</p></div>
+            <div class="service-item"><h4>🎊 Catering para Eventos</h4><p>Banquetes corporativos, coffee breaks, cenas, lunch boxes y montaje.</p></div>
+            <div class="service-item"><h4>🥗 Programas de Bienestar</h4><p>Opciones personalizadas (vegetariano/vegano/sin gluten) y asesoría nutricional.</p></div>
+            <div class="service-item"><h4>✅ Cumplimiento Sanitario</h4><p>Capacitación y auditorías sanitarias, trazabilidad de insumos y protocolos.</p></div>
+            <div class="service-item"><h4>📋 Gestión de Comedores</h4><p>Personal capacitado, control de inventarios y mantenimiento de equipos.</p></div>
+            <div class="service-item"><h4>🌮 Variedad de Menús</h4><p>Cocina mexicana e internacional con rotación semanal.</p></div>
+          </div>
+
+          <div class="process-section">
+            <h3 style="color:var(--navy); font-size:2rem; text-align:center; margin-bottom:1rem; font-weight:900;">Estándares de Calidad</h3>
+            <div class="process-steps">
+              <div class="step"><div class="step-number">1</div><h5>Planificación</h5><p>Menús revisados por especialistas.</p></div>
+              <div class="step"><div class="step-number">2</div><h5>Proveeduría</h5><p>Insumos con trazabilidad.</p></div>
+              <div class="step"><div class="step-number">3</div><h5>Preparación</h5><p>Protocolos y capacitación.</p></div>
+              <div class="step"><div class="step-number">4</div><h5>Servicio</h5><p>Atención profesional.</p></div>
+            </div>
+          </div>
+
+          <div style="text-align:center; margin-top:3rem;">
+            <a class="btn-primary" data-nav="contacto">Solicitar Prueba de Menú</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CASOS -->
+    <div id="casos-section" class="hidden">
+      <section class="case-studies">
+        <div class="case-studies-content">
+          <div class="section-header">
+            <h2>Casos de Éxito</h2>
+            <p>Soluciones a medida para retos complejos. Conozca cómo hemos transformado la infraestructura operativa de organizaciones líderes.</p>
+          </div>
+
+          <div class="case-card">
+            <div class="case-image">🏭</div>
+            <div class="case-content">
+              <div class="case-client">FEMSA • INFRAESTRUCTURA TECNOLÓGICA</div>
+              <h3>Modernización de Data Center Corporativo</h3>
+              <p><strong>El Reto:</strong> Actualizar infraestructura de red en un centro regional sin interrumpir servicios críticos 24/7.</p>
+              <p><strong>La Solución:</strong> Cableado estructurado, switches empresariales y respaldo energético (UPS redundante) en ventanas nocturnas durante 8 semanas.</p>
+              <div class="case-result">
+                <strong>Resultado:</strong> 99.9% de uptime logrado, reducción del 40% en tiempos de respuesta y ahorro operativo anual estimado.
+              </div>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <div class="case-image">🎓</div>
+            <div class="case-content">
+              <div class="case-client">TEC DE MONTERREY • FACILITY MANAGEMENT</div>
+              <h3>Gestión Integral de Campus Universitario</h3>
+              <p><strong>El Reto:</strong> Mantenimiento preventivo de múltiples edificios, HVAC de alto tráfico y coordinación de eventos simultáneos sin afectar clases.</p>
+              <p><strong>La Solución:</strong> Bitácoras digitales, equipo en sitio y protocolo de respuesta rápida a emergencias.</p>
+              <div class="case-result">
+                <strong>Resultado:</strong> Menos fallas, mayor cumplimiento preventivo y alta satisfacción de usuarios.
+              </div>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <div class="case-image">🏛️</div>
+            <div class="case-content">
+              <div class="case-client">GOBIERNO DE NUEVO LEÓN • CAPITAL HUMANO</div>
+              <h3>Reclutamiento Masivo de Personal Técnico</h3>
+              <p><strong>El Reto:</strong> Reclutar perfiles técnicos especializados en tiempo limitado y bajo requisitos estrictos de transparencia.</p>
+              <p><strong>La Solución:</strong> Proceso estandarizado con pruebas técnicas y validación documental.</p>
+              <div class="case-result">
+                <strong>Resultado:</strong> Contrataciones en tiempo y forma, con alta retención y proceso auditables.
+              </div>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <div class="case-image">🏪</div>
+            <div class="case-content">
+              <div class="case-client">OXXO • SUMINISTROS</div>
+              <h3>Optimización de Cadena de Suministro Regional</h3>
+              <p><strong>El Reto:</strong> Consolidar proveedores y reducir costos manteniendo estándares de calidad.</p>
+              <p><strong>La Solución:</strong> Contratos marco, sistema de pedidos y optimización de rutas.</p>
+              <div class="case-result">
+                <strong>Resultado:</strong> Reducción de costos y mejora en tiempos de entrega.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CONTACTO -->
+    <div id="contacto-section" class="hidden">
+      <section class="division-detail">
+        <div class="division-content">
+          <div class="section-header">
+            <h2>Hable con un Experto</h2>
+            <p>Entendemos que cada organización es única. Permítanos conocer sus retos específicos.</p>
+          </div>
+
+          <div class="about-grid">
+            <div style="background: var(--light-gray); padding: 3rem; border-radius: var(--radius);">
+              <h3 style="color: var(--navy); margin-bottom: 2rem; font-weight:900;">Información de Contacto</h3>
+
+              <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--turquoise); margin-bottom: 0.5rem; font-weight:900;">📞 Teléfono</h4>
+                <p style="font-size: 1.2rem; color: var(--navy); font-weight: 900;">+52 (81) 1234-5678</p>
+                <p style="color: var(--slate); font-size: 0.9rem;">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+              </div>
+
+              <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--turquoise); margin-bottom: 0.5rem; font-weight:900;">📧 Email</h4>
+                <p style="font-size: 1.05rem; color: var(--navy); font-weight:800;">contacto@grupomonroe.mx</p>
+                <p style="color: var(--slate); font-size: 0.9rem;">Tiempo de respuesta: &lt; 2 horas hábiles</p>
+              </div>
+
+              <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--turquoise); margin-bottom: 0.5rem; font-weight:900;">📍 Ubicación</h4>
+                <p style="color: var(--navy); font-weight:800;">San Pedro Garza García</p>
+                <p style="color: var(--slate);">Monterrey, Nuevo León, México</p>
+              </div>
+
+              <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--turquoise); margin-bottom: 0.5rem; font-weight:900;">🔐 Portal de Clientes</h4>
+                <p style="color: var(--slate); margin-bottom: 1rem;">Acceda a bitácoras, reportes y facturación</p>
+                <a href="#" class="btn-primary" style="padding:.75rem 1.5rem;">Acceder al Portal</a>
+              </div>
+            </div>
+
+            <!-- Contact Form (Netlify-ready) -->
+            <div class="contact-card">
+              <h3 style="margin-bottom: 2rem; font-weight:900;">¿Qué solución necesita?</h3>
+
+              <!--
+                Este formulario está listo para Netlify Forms:
+                1) Publica en Netlify
+                2) Asegura que el archivo se llame index.html
+                3) Netlify detecta el form automáticamente
+              -->
+              <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
+                <p class="hidden">
+                  <label>Si eres humano deja esto vacío: <input name="bot-field" /></label>
+                </p>
+
+                <div style="margin-bottom: 1.2rem;">
+                  <label for="division">División de Interés</label>
+                  <select id="division" name="division" required>
+                    <option value="" selected>Seleccione una opción...</option>
+                    <option>Monroe Tech - Infraestructura TI</option>
+                    <option>Monroe Talent - Capital Humano</option>
+                    <option>Monroe Services - Facility Management</option>
+                    <option>Monroe Supply - Suministros</option>
+                    <option>Monroe Foods - Soluciones Alimentarias</option>
+                    <option>Ecosistema Completo (Múltiples Divisiones)</option>
+                  </select>
+                </div>
+
+                <div style="margin-bottom: 1.2rem;">
+                  <label for="nombre">Nombre Completo</label>
+                  <input id="nombre" name="nombre" type="text" placeholder="Ej: María González López" autocomplete="name" required />
+                </div>
+
+                <div style="margin-bottom: 1.2rem;">
+                  <label for="email">Email Corporativo</label>
+                  <input id="email" name="email" type="email" placeholder="nombre@empresa.com.mx" autocomplete="email" required />
+                </div>
+
+                <div style="margin-bottom: 1.2rem;">
+                  <label for="empresa">Empresa</label>
+                  <input id="empresa" name="empresa" type="text" placeholder="Nombre de su organización" autocomplete="organization" required />
+                </div>
+
+                <div style="margin-bottom: 1.2rem;">
+                  <label for="tel">Teléfono</label>
+                  <input id="tel" name="telefono" type="tel" placeholder="+52 (81) 1234-5678" autocomplete="tel" />
+                </div>
+
+                <div style="margin-bottom: 1.6rem;">
+                  <label for="mensaje">Cuéntenos sobre su proyecto</label>
+                  <textarea id="mensaje" name="mensaje" placeholder="Describa brevemente el reto que enfrenta o el proyecto que desea implementar..." required></textarea>
+                </div>
+
+                <button class="contact-submit" type="submit">Enviar Solicitud de Consultoría</button>
+                <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.9; text-align: center;">
+                  Un especialista le contactará en menos de 24 horas hábiles
+                </p>
+              </form>
+            </div>
+          </div>
+
+          <div style="margin-top: 4rem; text-align: center; background: var(--light-gray); padding: 3rem; border-radius: var(--radius);">
+            <h3 style="color: var(--navy); margin-bottom: 1rem; font-weight:900;">¿Prefiere una reunión presencial?</h3>
+            <p style="color: var(--slate); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Nuestras oficinas en San Pedro Garza García están abiertas para reuniones estratégicas con directores de operaciones y tomadores de decisión.</p>
+            <a href="#" class="btn-primary">Agendar Visita a Nuestras Instalaciones</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>GRUPO MONROE</h3>
+        <p>Strategic Operational Partners. Potenciamos la infraestructura operativa de las organizaciones líderes en México desde 2013.</p>
+        <div class="certifications">
+          <span class="cert-badge">ISO 9001</span>
+          <span class="cert-badge">REPSE</span>
+          <span class="cert-badge">ESR</span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Soluciones</h4>
+        <ul>
+          <li><a data-nav="monroe-tech">Monroe Tech</a></li>
+          <li><a data-nav="monroe-talent">Monroe Talent</a></li>
+          <li><a data-nav="monroe-services">Monroe Services</a></li>
+          <li><a data-nav="monroe-supply">Monroe Supply</a></li>
+          <li><a data-nav="monroe-foods">Monroe Foods</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a data-nav="nosotros">Acerca de</a></li>
+          <li><a data-nav="casos">Casos de Éxito</a></li>
+          <li><a href="#">Liderazgo</a></li>
+          <li><a href="#">Carreras</a></li>
+          <li><a href="#">Privacidad</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+528112345678">+52 (81) 1234-5678</a></li>
+          <li><a href="mailto:contacto@grupomonroe.mx">contacto@grupomonroe.mx</a></li>
+          <li>Monterrey, Nuevo León</li>
+          <li><a href="#">Portal de Clientes</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Grupo Monroe. Todos los derechos reservados. | RFC: GMO130101ABC</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // ===== Utilities =====
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    function showToast(message, type='info'){
+      const toast = document.createElement('div');
+      toast.className = 'toast' + (type === 'success' ? ' success' : '');
+      toast.textContent = message;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.animation = 'slideOut .25s ease';
+        setTimeout(() => toast.remove(), 240);
+      }, 3000);
+    }
+
+    function trackPageView(pageName){
+      // Placeholder (integra GA/Meta/etc. si aplica)
+      // gtag('event', 'page_view', { page_title: pageName });
+      console.log('Page view:', pageName);
+    }
+
+    // ===== Section Navigation =====
+    function showSection(sectionName){
+      const sections = [
+        'inicio-section',
+        'nosotros-section',
+        'monroe-tech-section',
+        'monroe-talent-section',
+        'monroe-services-section',
+        'monroe-supply-section',
+        'monroe-foods-section',
+        'casos-section',
+        'contacto-section'
+      ];
+
+      // "Soluciones" es un ancla dentro de Inicio: mostramos Inicio y hacemos scroll.
+      if(sectionName === 'soluciones'){
+        // Mostrar solo Inicio
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if(!el) return;
+          if(id === 'inicio-section') el.classList.remove('hidden');
+          else el.classList.add('hidden');
+        });
+
+        // Scroll a soluciones
+        const target = document.getElementById('soluciones-section');
+        if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+
+        trackPageView('soluciones');
+        return;
+      }
+
+      // Ocultar todas las secciones top-level
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.classList.add('hidden');
+      });
+
+      // Mostrar destino
+      const targetSection = document.getElementById(sectionName + '-section');
+      if(targetSection){
+        targetSection.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        trackPageView(sectionName);
+      }
+    }
+
+    // ===== Mobile Menu =====
+    const mobileMenu = $('#mobileMenu');
+    const navToggle = $('#navToggle');
+    const navClose = $('#navClose');
+
+    function openMenu(){
+      mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      navToggle.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu(){
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    navToggle.addEventListener('click', openMenu);
+    navClose.addEventListener('click', closeMenu);
+    mobileMenu.addEventListener('click', (e) => {
+      // Click outside panel closes
+      if(e.target === mobileMenu) closeMenu();
+    });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+    });
+
+    // ===== Delegated navigation (removes inline onclick) =====
+    document.addEventListener('click', (e) => {
+      const navEl = e.target.closest('[data-nav]');
+      if(!navEl) return;
+
+      const section = navEl.getAttribute('data-nav');
+      if(!section) return;
+
+      // Close menu if open
+      if(mobileMenu.classList.contains('open')) closeMenu();
+
+      showSection(section);
+    });
+
+    // Keyboard support for div "buttons"
+    document.addEventListener('keydown', (e) => {
+      const el = e.target;
+      if(el && el.matches('[data-nav][role="button"]') && (e.key === 'Enter' || e.key === ' ')){
+        e.preventDefault();
+        el.click();
+      }
+    });
+
+    // Header shadow on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if(window.pageYOffset > 100) header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+      else header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+    });
+
+    // Animations on scroll (guarded for reduced motion)
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+
+    const observer = (!prefersReduced && 'IntersectionObserver' in window)
+      ? new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting){
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, observerOptions)
+      : null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const animateElements = document.querySelectorAll('.solution-card, .case-card, .value-card, .service-item');
+      animateElements.forEach(el => {
+        if(prefersReduced) return;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        if(observer) observer.observe(el);
+      });
+    });
+
+    // Counter animation (guarded)
+    function animateCounter(element, target, suffix=''){
+      let current = 0;
+      const steps = 90;
+      const increment = target / steps;
+      let tick = 0;
+
+      const timer = setInterval(() => {
+        tick += 1;
+        current += increment;
+        if(tick >= steps){
+          element.textContent = target + suffix;
+          clearInterval(timer);
+        }else{
+          element.textContent = Math.max(0, Math.floor(current)) + suffix;
+        }
+      }, 18);
+    }
+
+    const statsObserver = (!prefersReduced && 'IntersectionObserver' in window)
+      ? new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting && !entry.target.classList.contains('counted')){
+              const number = entry.target.querySelector('.stat-number');
+              if(!number) return;
+
+              const text = number.textContent;
+              const hasPlus = text.includes('+');
+              const hasPercent = text.includes('%');
+              const value = parseInt(text.replace(/[^0-9]/g, ''), 10);
+
+              number.textContent = '0';
+              animateCounter(number, value, hasPlus ? '+' : (hasPercent ? '%' : ''));
+              entry.target.classList.add('counted');
+            }
+          });
+        }, { threshold: 0.5 })
+      : null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.stat-item').forEach(stat => statsObserver && statsObserver.observe(stat));
+    });
+
+    // Contact form UX
+    const contactForm = $('#contactForm');
+    if(contactForm){
+      contactForm.addEventListener('submit', (e) => {
+        // For local file preview: prevent "nada pasa" and show confirmation.
+        // When deployed to Netlify, you can REMOVE preventDefault to let Netlify handle submissions.
+        e.preventDefault();
+
+        // Basic validity check
+        if(!contactForm.checkValidity()){
+          showToast('Por favor completa los campos requeridos.', 'info');
+          return;
+        }
+
+        showToast('Gracias. Recibimos tu solicitud y te contactaremos pronto.', 'success');
+        contactForm.reset();
+      });
+    }
+
+    // Initialize
+    window.addEventListener('load', () => {
+      document.body.classList.add('is-ready');
+      showSection('inicio');
+    });
+  </script>
+</body>
+</html>
