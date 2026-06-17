@@ -1,0 +1,328 @@
+/* =============================================================
+   Grupo Monroe — Colors & Type
+   Foundation tokens for the Monroe design system.
+   ============================================================= */
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: 'Epilogue';
+  src: url('./fonts/Epilogue-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Exo 2';
+  src: url('./fonts/Exo2-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Akkurat Mono';
+  src: url('./fonts/AKKURAT-Mono.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* =========================================================
+     PALETA PRINCIPAL — Core brand palette
+     From Logobook 2.1. Use Azul Monroe as the brand lead;
+     Marfil as the default surface; Negro for structural depth.
+     ========================================================= */
+  --gm-azul: #253F92;            /* Azul Monroe — brand blue */
+  --gm-negro: #0F0F10;           /* Negro Estructural */
+  --gm-carbon: #2B2725;          /* Carbón Corporativo */
+  --gm-gris: #ECE8E3;            /* Gris Técnico (warm stone) */
+  --gm-marfil: #FEFCF4;          /* Marfil Institucional */
+
+  /* =========================================================
+     PALETA DE SUBMARCAS — Business units
+     Each sub-brand is a tonal variant of the core palette.
+     ========================================================= */
+  --gm-sourcing: #2B2725;        /* Sourcing — Carbón */
+  --gm-tech: #59595A;            /* Tech — Plateado */
+  --gm-people: #3C2E7D;          /* People — Violeta */
+  --gm-facilities: #2C53A2;      /* Facilities — Azul */
+  --gm-experiences: #4175BA;     /* Experiences — Celeste */
+
+  /* =========================================================
+     AZUL SCALE — Derived tints/shades of Azul Monroe
+     For UI states, backgrounds, hovers.
+     ========================================================= */
+  --gm-azul-50:  #EEF2FB;
+  --gm-azul-100: #D5DEF3;
+  --gm-azul-200: #A8B8E4;
+  --gm-azul-300: #7C92D3;
+  --gm-azul-400: #4F6CBE;
+  --gm-azul-500: #253F92;        /* = --gm-azul */
+  --gm-azul-600: #1E3478;
+  --gm-azul-700: #17285C;
+  --gm-azul-800: #101C40;
+  --gm-azul-900: #0A1228;
+
+  /* =========================================================
+     NEUTRAL SCALE — Warm stone, aligned to Marfil/Carbón
+     ========================================================= */
+  --gm-neutral-0:   #FFFFFF;
+  --gm-neutral-50:  #FEFCF4;     /* = Marfil */
+  --gm-neutral-100: #F5F2EA;
+  --gm-neutral-200: #ECE8E3;     /* = Gris Técnico */
+  --gm-neutral-300: #D6D1C8;
+  --gm-neutral-400: #A8A29A;
+  --gm-neutral-500: #7A7570;
+  --gm-neutral-600: #59595A;     /* = Plateado */
+  --gm-neutral-700: #3D3935;
+  --gm-neutral-800: #2B2725;     /* = Carbón */
+  --gm-neutral-900: #0F0F10;     /* = Negro */
+
+  /* =========================================================
+     SEMANTIC — Surfaces, text, borders
+     Defaults assume a light (Marfil) surface.
+     ========================================================= */
+  --gm-bg:         var(--gm-marfil);
+  --gm-bg-subtle:  var(--gm-neutral-100);
+  --gm-bg-muted:   var(--gm-neutral-200);
+  --gm-bg-inverse: var(--gm-negro);
+
+  --gm-surface:         var(--gm-neutral-0);
+  --gm-surface-raised:  var(--gm-marfil);
+  --gm-surface-inverse: var(--gm-carbon);
+
+  --gm-fg:          var(--gm-negro);
+  --gm-fg-muted:    var(--gm-neutral-700);
+  --gm-fg-subtle:   var(--gm-neutral-500);
+  --gm-fg-inverse:  var(--gm-marfil);
+  --gm-fg-brand:    var(--gm-azul);
+  --gm-fg-on-brand: var(--gm-marfil);
+
+  --gm-border:       var(--gm-neutral-300);
+  --gm-border-subtle:var(--gm-neutral-200);
+  --gm-border-strong:var(--gm-carbon);
+  --gm-border-brand: var(--gm-azul);
+
+  --gm-focus-ring: rgba(37, 63, 146, 0.35);
+  --gm-overlay:    rgba(15, 15, 16, 0.55);
+
+  /* Status (derived; not in spec, tuned to palette) */
+  --gm-success: #2F7D5B;
+  --gm-warning: #C98A1B;
+  --gm-danger:  #B23A2B;
+  --gm-info:    var(--gm-azul);
+
+  /* =========================================================
+     GRADIENTS — Gradiente Institucional
+     Deep blue glow on near-black. Use for hero surfaces,
+     feature sections, "high impact" digital placements.
+     ========================================================= */
+  --gm-gradient-institutional:
+    radial-gradient(ellipse 60% 50% at 20% 80%, #1E3AC9 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 30%, #1230A8 0%, transparent 55%),
+    linear-gradient(180deg, #05060C 0%, #0A0E20 100%);
+
+  --gm-gradient-azul:
+    linear-gradient(135deg, var(--gm-azul-700) 0%, var(--gm-azul) 50%, var(--gm-azul-400) 100%);
+
+  --gm-gradient-bar:             /* used on the diagonal "movimiento" bar */
+    linear-gradient(180deg, var(--gm-azul) 0%, var(--gm-azul-800) 100%);
+
+  /* =========================================================
+     TYPOGRAPHY — Families
+     Epilogue: display / headlines / brand voice
+     Exo 2:    body / UI / supporting text
+     Akkurat Mono: data, metadata, technical copy, labels
+     ========================================================= */
+  --gm-font-display: 'Epilogue', 'Inter', system-ui, sans-serif;
+  --gm-font-body:    'Exo 2', 'Inter', system-ui, sans-serif;
+  --gm-font-mono:    'Akkurat Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Weights — Epilogue is variable, full range */
+  --gm-weight-regular:  400;
+  --gm-weight-medium:   500;
+  --gm-weight-semibold: 600;
+  --gm-weight-bold:     700;
+  --gm-weight-black:    800;
+
+  /* Type scale (fluid-ish; tune per surface) */
+  --gm-text-xs:   12px;
+  --gm-text-sm:   14px;
+  --gm-text-base: 16px;
+  --gm-text-md:   18px;
+  --gm-text-lg:   22px;
+  --gm-text-xl:   28px;
+  --gm-text-2xl:  36px;
+  --gm-text-3xl:  48px;
+  --gm-text-4xl:  64px;
+  --gm-text-5xl:  84px;
+  --gm-text-6xl:  112px;
+
+  --gm-leading-tight:  1.05;
+  --gm-leading-snug:   1.2;
+  --gm-leading-normal: 1.45;
+  --gm-leading-loose:  1.65;
+
+  --gm-tracking-tight:  -0.02em;
+  --gm-tracking-normal: 0;
+  --gm-tracking-wide:   0.04em;   /* default for Akkurat Mono labels */
+  --gm-tracking-caps:   0.08em;   /* for ALL CAPS display */
+
+  /* =========================================================
+     SPACING — 4px base, generous at display sizes
+     ========================================================= */
+  --gm-space-0:  0;
+  --gm-space-1:  4px;
+  --gm-space-2:  8px;
+  --gm-space-3:  12px;
+  --gm-space-4:  16px;
+  --gm-space-5:  20px;
+  --gm-space-6:  24px;
+  --gm-space-8:  32px;
+  --gm-space-10: 40px;
+  --gm-space-12: 48px;
+  --gm-space-16: 64px;
+  --gm-space-20: 80px;
+  --gm-space-24: 96px;
+  --gm-space-32: 128px;
+
+  /* =========================================================
+     RADII — The icon containers use a squircle-like radius.
+     Keep buttons/inputs small (2–4px); cards medium (8–14px).
+     ========================================================= */
+  --gm-radius-none: 0;
+  --gm-radius-sm:   2px;
+  --gm-radius-md:   4px;     /* default for buttons, inputs */
+  --gm-radius-lg:   10px;    /* cards */
+  --gm-radius-xl:   20px;    /* large containers, icon boxes */
+  --gm-radius-2xl:  32px;    /* icon container (squircle) */
+  --gm-radius-full: 999px;
+
+  /* =========================================================
+     SHADOWS — Minimal. Monroe imagery is flat + noise, not shadowed.
+     Used sparingly for interactive elevation.
+     ========================================================= */
+  --gm-shadow-none: none;
+  --gm-shadow-sm:   0 1px 2px rgba(15, 15, 16, 0.06);
+  --gm-shadow-md:   0 4px 14px rgba(15, 15, 16, 0.08);
+  --gm-shadow-lg:   0 18px 40px -12px rgba(15, 15, 16, 0.18);
+  --gm-shadow-brand:0 14px 40px -14px rgba(37, 63, 146, 0.55);
+
+  /* =========================================================
+     MOTION
+     Transitions are short, linear-out. No bounces. Monroe = steady.
+     ========================================================= */
+  --gm-ease-out: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --gm-ease-in:  cubic-bezier(0.4, 0, 1, 1);
+  --gm-ease-std: cubic-bezier(0.4, 0, 0.2, 1);
+  --gm-dur-fast:    120ms;
+  --gm-dur-base:    200ms;
+  --gm-dur-slow:    360ms;
+  --gm-dur-ambient: 1200ms;   /* for gradient drift, hero motion */
+
+  --gm-container-narrow: 720px;
+  --gm-container-base:   1120px;
+  --gm-container-wide:   1440px;
+}
+
+/* =============================================================
+   Semantic element defaults — opt in via .gm-typeset or body.gm
+   ============================================================= */
+.gm, .gm-typeset {
+  font-family: var(--gm-font-body);
+  font-size: var(--gm-text-base);
+  line-height: var(--gm-leading-normal);
+  color: var(--gm-fg);
+  background: var(--gm-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.gm-typeset h1, .gm-h1 {
+  font-family: var(--gm-font-display);
+  font-weight: var(--gm-weight-bold);
+  font-size: var(--gm-text-5xl);
+  line-height: var(--gm-leading-tight);
+  letter-spacing: var(--gm-tracking-tight);
+  color: var(--gm-fg);
+  margin: 0 0 var(--gm-space-6);
+}
+.gm-typeset h2, .gm-h2 {
+  font-family: var(--gm-font-display);
+  font-weight: var(--gm-weight-semibold);
+  font-size: var(--gm-text-3xl);
+  line-height: var(--gm-leading-tight);
+  letter-spacing: var(--gm-tracking-tight);
+  margin: 0 0 var(--gm-space-5);
+}
+.gm-typeset h3, .gm-h3 {
+  font-family: var(--gm-font-display);
+  font-weight: var(--gm-weight-semibold);
+  font-size: var(--gm-text-xl);
+  line-height: var(--gm-leading-snug);
+  margin: 0 0 var(--gm-space-4);
+}
+.gm-typeset h4, .gm-h4 {
+  font-family: var(--gm-font-display);
+  font-weight: var(--gm-weight-medium);
+  font-size: var(--gm-text-lg);
+  line-height: var(--gm-leading-snug);
+  margin: 0 0 var(--gm-space-3);
+}
+
+.gm-typeset p, .gm-p {
+  font-family: var(--gm-font-body);
+  font-size: var(--gm-text-base);
+  line-height: var(--gm-leading-normal);
+  text-wrap: pretty;
+  margin: 0 0 var(--gm-space-4);
+}
+
+.gm-lead {
+  font-family: var(--gm-font-body);
+  font-size: var(--gm-text-md);
+  line-height: var(--gm-leading-normal);
+  color: var(--gm-fg-muted);
+}
+
+.gm-eyebrow, .gm-overline, .gm-label {
+  font-family: var(--gm-font-mono);
+  font-size: var(--gm-text-xs);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: var(--gm-tracking-caps);
+  color: var(--gm-fg-muted);
+}
+
+.gm-mono, .gm-code {
+  font-family: var(--gm-font-mono);
+  font-size: var(--gm-text-sm);
+  letter-spacing: var(--gm-tracking-wide);
+}
+
+.gm-display {
+  font-family: var(--gm-font-display);
+  font-weight: var(--gm-weight-bold);
+  font-size: var(--gm-text-6xl);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+/* ==================== Dark surface opt-in ====================
+   Apply .gm-dark to a container (or body) to flip tokens
+   for use on the Gradiente Institucional or Negro surfaces.
+   ============================================================= */
+.gm-dark {
+  --gm-bg: var(--gm-negro);
+  --gm-bg-subtle: var(--gm-neutral-800);
+  --gm-bg-muted:  var(--gm-neutral-700);
+  --gm-surface: var(--gm-carbon);
+  --gm-surface-raised: var(--gm-neutral-700);
+  --gm-fg: var(--gm-marfil);
+  --gm-fg-muted: var(--gm-neutral-300);
+  --gm-fg-subtle: var(--gm-neutral-400);
+  --gm-border: rgba(236, 232, 227, 0.14);
+  --gm-border-subtle: rgba(236, 232, 227, 0.08);
+  color: var(--gm-fg);
+  background: var(--gm-bg);
+}
